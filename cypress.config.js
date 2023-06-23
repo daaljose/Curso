@@ -66,7 +66,7 @@ module.exports = defineConfig({
     },
   },
   e2e: {
-    baseUrl: "http://localhost:3000",
+    baseUrl: "http://localhost:3002",
     specPattern: "cypress/tests/**/*.spec.{js,jsx,ts,tsx}",
     supportFile: "cypress/support/e2e.ts",
     viewportHeight: 1000,

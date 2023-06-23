@@ -35,20 +35,20 @@ declare namespace Cypress {
 
   interface Chainable {
     /**
-     *  Window object with additional properties used during test.
-     */
+    * Objeto Window con propiedades adicionales utilizadas durante el test.
+    */
     window(options?: Partial<Loggable & Timeoutable>): Chainable<CustomWindow>;
 
     /**
-     * Custom command to make taking Percy snapshots with full name formed from the test title + suffix easier
-     */
+ * Comando personalizado para facilitar la toma de capturas de pantalla con Percy con el nombre completo formado a partir del título del test + sufijo.
+ */
     visualSnapshot(maybeName?): Chainable<any>;
 
     getBySel(dataTestAttribute: string, args?: any): Chainable<JQuery<HTMLElement>>;
     getBySelLike(dataTestPrefixAttribute: string, args?: any): Chainable<JQuery<HTMLElement>>;
 
     /**
-     *  Cypress task for directly querying to the database within tests
+     * Tarea de Cypress para realizar consultas directamente a la base de datos dentro de las pruebas
      */
     task(
       event: "filter:database",
@@ -57,7 +57,7 @@ declare namespace Cypress {
     ): Chainable<any[]>;
 
     /**
-     *  Cypress task for directly querying to the database within tests
+     * Tarea de Cypress para realizar consultas directamente a la base de datos dentro de las pruebas
      */
     task(
       event: "find:database",
@@ -66,92 +66,92 @@ declare namespace Cypress {
     ): Chainable<any>;
 
     /**
-     * Find a single entity via database query
+     * Encuentra una sola entidad a través de una consulta a la base de datos
      */
     database(operation: "find", entity: string, query?: object, log?: boolean): Chainable<any>;
 
     /**
-     * Filter for data entities via database query
+     * Filtra por entidades de datos a través de una consulta a la base de datos
      */
     database(operation: "filter", entity: string, query?: object, log?: boolean): Chainable<any>;
 
     /**
-     * Fetch React component instance associated with received element subject
+     * Obtiene la instancia de un componente React asociado con el elemento recibido
      */
     reactComponent(): Chainable<any>;
 
     /**
-     * Select data range within date range picker component
+     * Selecciona un rango de fechas dentro del componente del selector de rango de fechas
      */
     pickDateRange(startDate: Date, endDate: Date): Chainable<void>;
 
     /**
-     * Select transaction amount range
+     * Selecciona un rango de cantidades para una transacción
      */
     setTransactionAmountRange(min: number, max: number): Chainable<any>;
 
     /**
-     * Paginate to the next page in transaction infinite-scroll pagination view
+     * Pagina a la siguiente página en la vista de paginación de transacciones con desplazamiento infinito
      */
     nextTransactionFeedPage(service: string, page: number): Chainable<any>;
 
     /**
-     * Logs-in user by using UI
+     * Inicia sesión de usuario utilizando la interfaz de usuario
      */
     login(username: string, password: string, loginOptions?: LoginOptions): void;
 
     /**
-     * Logs-in user by using API request
-     */
+ * Inicia sesión de usuario utilizando una solicitud de API
+ */
     loginByApi(username: string, password?: string): Chainable<Response>;
 
     /**
-     * Logs-in user by using Google API request
+     * Inicia sesión de usuario utilizando una solicitud de API de Google
      */
     loginByGoogleApi(): Chainable<Response>;
 
     /**
-     * Logs-in user by using Okta API request
+     * Inicia sesión de usuario utilizando una solicitud de API de Okta
      */
     loginByOktaApi(username: string, password?: string): Chainable<Response>;
 
     /**
-     * Logs-in user by navigating to Okta tenant with cy.origin()
+     * Inicia sesión de usuario navegando al inquilino de Okta con cy.origin()
      */
     loginByOkta(username: string, password: string): Chainable<Response>;
 
     /**
-     * Logs in bypassing UI by triggering XState login event
+     * Inicia sesión evitando la interfaz de usuario al activar el evento de inicio de sesión de XState
      */
     loginByXstate(username: string, password?: string): Chainable<any>;
 
     /**
-     * Logs out via bypassing UI by triggering XState logout event
+     * Cierra la sesión evitando la interfaz de usuario al activar el evento de cierre de sesión de XState
      */
     logoutByXstate(): Chainable<string>;
 
     /**
-     * Logs in via Auth0 login page
+     * Inicia sesión a través de la página de inicio de sesión de Auth0
      */
     loginToAuth0(username: string, password: string): Chainable<any>;
 
     /**
-     * Switch current user by logging out current user and logging as user with specified username
+     * Cambia el usuario actual cerrando la sesión del usuario actual e iniciando sesión como usuario con el nombre de usuario especificado
      */
     switchUserByXstate(username: string): Chainable<any>;
 
     /**
-     * Create Transaction via bypassing UI and using XState createTransactionService
+     * Crea una transacción evitando la interfaz de usuario y utilizando el servicio de creación de transacciones de XState
      */
     createTransaction(payload): Chainable<any>;
 
     /**
-     * Logs in to AWS Cognito via Amplify Auth API bypassing UI using Cypress Task
+     * Inicia sesión en AWS Cognito a través de la API de autenticación de Amplify evitando la interfaz de usuario utilizando una Tarea de Cypress
      */
     loginByCognitoApi(username: string, password: string): Chainable<any>;
 
     /**
-     * Logs in to AWS Cognito Federated via cy.origin()
+     * Inicia sesión en AWS Cognito Federated a través de cy.origin()
      */
     loginByCognito(username: string, password: string): Chainable<any>;
   }
